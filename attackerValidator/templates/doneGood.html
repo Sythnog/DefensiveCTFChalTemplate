@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>[SOLVED] Defensive CTF: Judge</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="contentBox">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h1 class="text-center text-light"><b>Defensive CTF: Judge</b></h1>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <div class="fillWidth">
+                            <h3 class="text-center text-light">Congratulations! You solved the vulnerability!</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <p class="text-center text-light"><b>The flag is: </b>{{ flag }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

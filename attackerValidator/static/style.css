@@ -1,0 +1,10 @@
+body, html {
+    background: #0A1C25;
+    background: -webkit-linear-gradient(top left, #0A1C25, #591413) no-repeat center center fixed;
+    background: -moz-linear-gradient(top left, #0A1C25, #591413) no-repeat center center fixed;
+    background: linear-gradient(to bottom right, #0A1C25, #591413) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.contentBox { margin-top: 2em; }
+.fillWidht { width: 100% }
