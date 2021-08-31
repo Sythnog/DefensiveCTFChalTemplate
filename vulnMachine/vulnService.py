@@ -18,4 +18,5 @@ def NotFound(path):
     return render_template_string(notFoundStr)
 
 # -== Start server ==-
-app.run(threaded=True, debug=False, port=80, host="0.0.0.0")
+if __name__ == "__main__":
+    app.run(threaded=True, debug=False, port=80, host="0.0.0.0")
