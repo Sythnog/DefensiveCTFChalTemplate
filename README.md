@@ -9,5 +9,7 @@ There are two docker scripts to build and run the containers. Be aware that curr
 
 SSH password for `root` on the vulnerable machine is by default `notS0S3cr3tSSHPa55`, which can be changed in the Dockerfile if desired.
 
+Once you have used SSH to access the machine, and have made your changes, then the service can be restarted with `killall python3; python3 /opt/notFoundService/vulnService.py`
+
 ## The current example
 The service is vulnerable to server-side template injection SSTI.
