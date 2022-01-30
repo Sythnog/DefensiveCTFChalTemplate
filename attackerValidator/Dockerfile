@@ -1,21 +1,20 @@
-# Use latest version of stable debian, and set working folder in the container
-FROM debian:stable-slim
-WORKDIR /opt/attackerValidator
+# Use Alpine Linux, and set the working directory
+FROM alpine:3.15.0
+WORKDIR /opt/attVal
 
-# Install needed packages
-RUN apt update && apt install python3 python3-pip -y
+# Update the system, and install the needed packages
+RUN apk update --no-cache && apk add bash go --no-cache
 
-# Move files and install python dependencies
+# Add a user for system-hardening
+RUN adduser -D attValUser
+
+# Move files to container, and build the application
 COPY . .
-RUN pip3 install -r requirements.txt
+RUN go build -race
 
-# Add a user to not run the service as root, and switch to it
-RUN groupadd -r server && useradd -r -g server server
-USER server
-
-# Expose the used port
+# Cleanup, switch user, expose port, and start
+RUN rm validateCode.sh main.go go.mod go.sum Dockerfile runAttacker.sh installValidatorTools.sh
+USER attValUser
 EXPOSE 80
-
-# Start the service
 ENTRYPOINT ["bash"]
 CMD ["start.sh"]
