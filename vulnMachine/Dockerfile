@@ -3,7 +3,7 @@ FROM debian:stable-slim
 WORKDIR /opt/notFoundService
 
 # Ensure updated apt, and install basic debug tools for users to utilize
-RUN apt update && apt install vim nano emacs htop wget curl python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential -y
+RUN apt update && apt install tcpdump vim nano emacs htop wget curl python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential -y
 
 # Install useful python packages for debugging 
 RUN pip3 install requests
