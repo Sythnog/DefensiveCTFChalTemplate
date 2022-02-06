@@ -14,7 +14,10 @@ RUN go build -race
 
 # Cleanup, switch user, expose port, and start
 RUN rm validateCode.sh main.go go.mod go.sum Dockerfile runAttacker.sh installValidatorTools.sh
+
+# Switch user and install nuclei for this user
 USER attValUser
+RUN go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 EXPOSE 80
 ENTRYPOINT ["bash"]
 CMD ["start.sh"]

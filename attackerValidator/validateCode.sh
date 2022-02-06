@@ -13,7 +13,7 @@ done
 echo "[Dockerfile]"
 ~/.local/bin/semgrep --config "p/dockerfile"
 
-# Perform SAST security checks
+# Perform SAST checks
 echo -e "\n{Gosec}\n"
 ~/go/bin/gosec .
 echo -e "\n{Semgrep: Golang}\n"

@@ -11,7 +11,7 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <h1 class="text-center"><b>Defensive CTF FAQ</b></h1>
-                    <h2 class="text-center text-secondary"><i>With info specific to "{{ .challName }}"</i></h2>
+                    <h2 class="text-center text-secondary"><i>With info specific to "{{ .name }}"</i></h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -20,11 +20,11 @@
                     <p class="text-center">To solve a defensive CTF challenge you need to find and solve a security vulnerability in a service. Once you feel that you have solved the vulnerability, then you can ask the judge <i>(this service)</i> to validate that the vulnerability has been solved. Furthermore, it will perform checks to validate that the "normal" functionality still works.</p>
                     <p class="text-center"><b>HINT:</b> It might be useful to run the judge and see which requests are sent, as it will help you find the vulnerability to solve. Furthermore, the following is a rough "game-plan" of how you might approach the challenge:</p>
                     <ul class="list">
-                        <li>Connect to the vulnerable service via: <code>ssh root@{{ .challWebLocation }}</code></li>
-                        <li>The password for SSH is <code>{{ .challSSHPass }}</code></li>
-                        <li>You can find the files for the vulnerable service in: <code>{{ .challFileLoc }}</code></li>
+                        <li>Connect to the vulnerable service via: <code>ssh root@{{ .webLocation }}</code></li>
+                        <li>The password for SSH is <code>{{ .SSHPass }}</code></li>
+                        <li>You can find the files for the vulnerable service in: <code>{{ .fileLoc }}</code></li>
                         <li>Now you need to find and solve the vulnerability in the service.</li>
-                        <li>When the vulnerability is solved, restart the service with: <code>{{ .challRestartServiceCMD }}</code></li>
+                        <li>When the vulnerability is solved, restart the service with: <code>{{ .restartServiceCMD }}</code></li>
                         <li>Go to the main page of this service and start the judge.</li>
                         <li>The judge will grant you the flag, if the vulnerability has been solved and "normal" functionality still works.</li>
                     </ul>
@@ -42,7 +42,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="row justify-content-center">
                 <div class="col-8">
                     <h3 class="text-center">Where can I find more information about this challenge concept?</h3>
@@ -51,6 +50,11 @@
                         <li><a class="text-dark" href="https://sythnog.com/projects/defensive-ctf-challenges" target="_blank" rel="noreferrer noopener">Article based upon the BSides København 2021 Talk</a></li>
                         <li><a class="text-dark" href="https://github.com/Sythnog/DefensiveCTFChalTemplate" target="_blank" rel="noreferrer noopener">Code-template to create your own challenges</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <center><a href="/"><button type="button" class="btn btn-secondary">Back to front-page</button></a></center>
                 </div>
             </div>
             <div class="row justify-content-center">
