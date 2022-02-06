@@ -1,0 +1,45 @@
+id: normal-func-check
+
+info:
+  name: Normal functionality checker
+  author: Sythnog
+  severity: high
+  description: This test is used to ensure that the normal expected functionality still exists in the service
+  tags: defensive-ctf, expected-functionality
+
+requests:
+  - method: GET
+    path:
+      - "{{RootURL}}/I%20am%20running%20a%20test"
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "I am running a test"
+
+  - method: GET
+    path:
+      - "{{RootURL}}/robots.txt"
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "robots.txt"
+
+  - method: GET
+    path:
+      - "{{RootURL}}/superSecretAdminPage"
+    redirects: false
+    headers:
+      User-Agent: "Defensive CTF Judge"
+
+    matchers:
+    - type: word
+      words:
+        - "superSecretAdminPage"
